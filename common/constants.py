@@ -1,0 +1,1 @@
+UID_LENGTH=12
