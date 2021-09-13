@@ -18,9 +18,9 @@ class CustomHStoreField(HStoreField):
             raise exceptions.ValidationError(e.message, code='invalid')
         return status
 
-    def _split_check_integer(self, value):
+    def _split_check_string(self, value):
         try:
-            int_list = list(map(int, value.split(":")))
+            int_list = list(map(str, value.split(":")))
             if not len(int_list) == 2: return False
         except:
             return False
@@ -28,7 +28,7 @@ class CustomHStoreField(HStoreField):
 
     def _validate_keys(self, value):
         keys = value.keys() or []
-        if not all(self._split_check_integer(key) for key in keys):
+        if not all(self._split_check_string(key) for key in keys):
             message = "key should be in format of 'row:colomn'"
             raise exceptions.ValidationError(message, code='invalid')
 

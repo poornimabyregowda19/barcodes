@@ -1,6 +1,5 @@
 from django.db.models.expressions import Func, Expression
 from django.db.models.sql.constants import GET_ITERATOR_CHUNK_SIZE
-from django.utils import six
 from django_postgres_extensions.models.expressions import F, Value as V
 
 
